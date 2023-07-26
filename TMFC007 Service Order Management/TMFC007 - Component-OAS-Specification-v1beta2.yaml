@@ -71,11 +71,10 @@ coreFunction:
           developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/PromotionManagement/v4/docs
           port: 8080
           resources: 
-          - event:  
-            - GET
-            - GET /id
+          - listener:
             - POST
-            - PATCH
+          - hub:
+            - POST
             - DELETE
     dependantAPIs:
        - name: ServiceCatalogManagement
