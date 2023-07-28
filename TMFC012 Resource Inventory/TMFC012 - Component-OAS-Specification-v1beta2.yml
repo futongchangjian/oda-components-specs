@@ -18,7 +18,7 @@ spec:
       email: gaetano.biancardi@accenture.com
 coreFunction:
   exposedAPIs:
-    - name: ResourceInventory
+    - name: ResourceInventoryManagement
       id: TMF639
       isRequired: yes
       version: 4.0
@@ -177,7 +177,7 @@ coreFunction:
             - GET /id
     - name: GeographicAddressManagement
       id: TMF673
-      isRequired: yes
+      isRequired: no
       version: 4.0
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF673_GeographicAddress/master/TMF673-GeographicAddress-v4.0.1.swagger.json
       implementation: /{{.Release.Name}}-GeographicAddressManagement
@@ -189,9 +189,12 @@ coreFunction:
       - geographicAddress:
              - GET
              - GET /id
+      - geographicSubAddress:
+             - GET
+             - GET /id
     - name: GeographicSiteManagement
       id: TMF674
-      isRequired: yes
+      isRequired: no
       version: 4.0
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF674_GeographicSite/master/TMF674-GeographicSite-v4.0.0.swagger.json
       implementation: /{{.Release.Name}}-GeographicSiteManagement
@@ -204,7 +207,7 @@ coreFunction:
              - GET /id
     - name: GeographicLocation
       id: TMF675
-      isRequired: yes
+      isRequired: no
       version: 4.0
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF675_GeographicLocation/master/TMF675-GeographicLocation-v4.0.0.swagger.json
       implementation: /{{.Release.Name}}-GeographicLocation
@@ -217,7 +220,7 @@ coreFunction:
          - GET /id
     - name: UserRolesPermissions
       id: TMF672
-      isRequired: yes
+      isRequired: no
       version: 4.0
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF672_UserRolesPermissions/master/TMF672-UserRolePermission-v4.0.0.swagger.json
       implementation: /{{.Release.Name}}-UserRolesPermissions
@@ -226,11 +229,11 @@ coreFunction:
       port: 8080
       resources:
       - permission:
-       - GET
-       - GET /id
+        - GET
+        - GET /id
     - name: ResourceInventoryManagement
       id: TMF639
-      isRequired: yes
+      isRequired: no
       version: 4.0
       specification: https://raw.githubusercontent.com/tmforum-apis/TMF639-ResourceInventory/master/TMF639-ResourceInventory-v4.0.0.swagger.json
       implementation: /{{.Release.Name}}-ResourceInventory
@@ -238,12 +241,12 @@ coreFunction:
       developerUI: /{{.Release.Name}}-{{.Values.component.type}}/tmf-api/ResourceInventory/v4/docs
       port: 8080
       resources:
-      - resource::
-       - GET
-       - GET /id       
-       - POST
-       - PATCH
-       - DELETE
+      - resource:
+        - GET
+        - GET /id       
+        - POST
+        - PATCH
+        - DELETE
     - name: Event
       id: TMF688
       isRequired: no
